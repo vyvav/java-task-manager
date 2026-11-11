@@ -1,3 +1,9 @@
+package service;
+
+import enums.Priority;
+import enums.Status;
+
+
 public class Task {
     private int id;
     private String title;
