@@ -1,11 +1,11 @@
 package service;
 
+import enums.Status;
 import java.util.ArrayList;
-
-import src.model.Task;
+import model.Task;
 
 public class TaskService {
-    private ArrayList<Task> tasks;
+    private final ArrayList<Task> tasks;
 
     public TaskService() {
         tasks = new ArrayList<>();
@@ -30,7 +30,7 @@ public class TaskService {
             
         }
         if (!found) {
-                System.out.println("Invalid ID");
+            System.out.println("Invalid ID");
         }
     }
 
@@ -45,5 +45,43 @@ public class TaskService {
         System.out.println("Invalid ID");
         return null;
 
+    }
+
+    public void updateTask(int id, String newTitle) {
+        boolean found = false;
+
+
+        for (int i = 0; i < tasks.size(); i++) {
+            Task task = tasks.get(i);
+            
+
+            if (task.getId() == id) {
+                task.setTitle(newTitle);
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Invalid ID");
+        }
+    }
+
+    public void updateStatus(int id, Status newStatus) {
+        boolean found = false;
+
+
+        for (int i = 0; i < tasks.size(); i++) {
+            Task task = tasks.get(i);
+            
+
+            if (task.getId() == id) {
+                task.setStatus(newStatus);
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Invalid ID");
+        }
     }
 }
