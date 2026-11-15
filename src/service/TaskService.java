@@ -1,5 +1,6 @@
 package service;
 
+import enums.Priority;
 import enums.Status;
 import java.util.ArrayList;
 import model.Task;
@@ -16,6 +17,7 @@ public class TaskService {
     public ArrayList<Task> getAllTasks() {
         return tasks;
     }
+    
     public void deleteTask(int id) {
         boolean found = false;
 
@@ -84,4 +86,44 @@ public class TaskService {
             System.out.println("Invalid ID");
         }
     }
+
+    public void updatePriority(int id, Priority newPriority) {
+        boolean found = false;
+
+
+        for (int i = 0; i < tasks.size(); i++) {
+            Task task = tasks.get(i);
+            
+
+            if (task.getId() == id) {
+                task.setPriority(newPriority);
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Invalid ID");
+        }
+    }
+
+    public void updateDescription(int id, String newDescription) {
+        boolean found = false;
+
+
+        for (int i = 0; i < tasks.size(); i++) {
+            Task task = tasks.get(i);
+            
+
+            if (task.getId() == id) {
+                task.setDescription(newDescription);
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Invalid ID");
+        }
+    }
+
+    
 }

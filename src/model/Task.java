@@ -51,7 +51,7 @@ public void setStatus(Status status) {
     this.status = status;
 }
 
-public void setPriotiry(Priority priority) {
+public void setPriority(Priority priority) {
     this.priority = priority;
 }
 
